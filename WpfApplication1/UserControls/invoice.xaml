@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="WpfApplication1.invoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:invoice_model/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style x:Key="Datepicker" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource {x:Type DatePicker}}">
+            <Setter Property="Width" Value="150" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Invoice No." Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding InvoiceNo}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Customer Name" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding CustomerName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Customer Address" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding CustomerAddress}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Invoice Date" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <DatePicker SelectedDate="{Binding InvoiceDate}" Style="{StaticResource ResourceKey=Datepicker}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Customer PAN" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Mode of Payment" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Cash Ledger" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Shipping Details" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Currency" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Exchange Rate" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Income Period" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Invoice Type" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text=""/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <TextBlock Text="Amount" Margin="0 0 10 0" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Amount}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <Button Click="Tax_Click">Add Tax</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="30" Margin="10 5">
+            <Button Click="Submit_Click" Margin="0 0 10 0">Submit</Button>
+            <Button Click="Close_Click" Margin="0 0 10 0">Close</Button>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="WpfApplication1.journal_register"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1"
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Journal No." Grid.Column="0" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Journal Date" Grid.Column="1" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Account Name" Grid.Column="2" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Account Address" Grid.Column="3" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Amount" Grid.Column="4" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+        </Grid>
+
+        <ItemsControl ItemsSource="{Binding JournalModelList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding JournalNo}" Grid.Column="0"/>
+                        <Label Content="{Binding JournalDate}" Grid.Column="1"/>
+                        <Label Content="{Binding AccountName}" Grid.Column="2"/>
+                        <Label Content="{Binding AccountAddress}" Grid.Column="3"/>
+                        <Label Content="{Binding Amount}" Grid.Column="4"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+    </StackPanel>
+    
+</UserControl>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="WpfApplication1.invoice_register"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApplication1"
+             mc:Ignorable="d" Loaded="UserControl_Loaded"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.DataContext>
+        <local:invoice_viewmodel/>
+    </UserControl.DataContext>
+
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Invoice No." Grid.Column="0" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Invoice Date" Grid.Column="1" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Customer Name" Grid.Column="2" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Customer Address" Grid.Column="3" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+            <Label Content="Amount" Grid.Column="4" BorderBrush="LightGray" BorderThickness="0 0 0 1"/>
+        </Grid>
+
+        <ItemsControl ItemsSource="{Binding InvoiceModelList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="{Binding InvoiceNo}" Grid.Column="0"/>
+                        <Label Content="{Binding InvoiceDate}" Grid.Column="1"/>
+                        <Label Content="{Binding CustomerName}" Grid.Column="2"/>
+                        <Label Content="{Binding CustomerAddress}" Grid.Column="3"/>
+                        <Label Content="{Binding Amount}" Grid.Column="4"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel Orientation="Horizontal" Height="20" Margin="10 5">
+            <Button Click="Adjust_Click">Adjust</Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,18 +57,120 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="journal_repo.cs" />
+    <Compile Include="Model\invoice_viewmodel.cs" />
+    <Compile Include="Model\journal_viewmodel.cs" />
+    <Compile Include="Model\journal_model.cs" />
+    <Compile Include="Model\invoice_model.cs" />
+    <Compile Include="Model\purchase_model.cs" />
+    <Compile Include="Model\purchase_viewmodel.cs" />
+    <Compile Include="purchase_repo.cs" />
+    <Compile Include="Repo\invoice_repo.cs" />
+    <Compile Include="tax_scheme.xaml.cs">
+      <DependentUpon>tax_scheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\invoice_register.xaml.cs">
+      <DependentUpon>invoice_register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\journal.xaml.cs">
+      <DependentUpon>journal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\journal_register.xaml.cs">
+      <DependentUpon>journal_register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\purchase.xaml.cs">
+      <DependentUpon>purchase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\purchase_register.xaml.cs">
+      <DependentUpon>purchase_register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\settings1.xaml.cs">
+      <DependentUpon>settings1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\settings2.xaml.cs">
+      <DependentUpon>settings2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\settings3.xaml.cs">
+      <DependentUpon>settings3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\view_invoice.xaml.cs">
+      <DependentUpon>view_invoice.xaml</DependentUpon>
+    </Compile>
+    <Page Include="tax_scheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\account_category.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\invoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\invoice_register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\journal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="UserControls\account.xaml.cs">
+      <DependentUpon>account.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\account_category.xaml.cs">
+      <DependentUpon>account_category.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ActionTabItem.cs" />
+    <Compile Include="Model\ActionTabViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\invoice.xaml.cs">
+      <DependentUpon>invoice.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\journal_register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\purchase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\purchase_register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\settings1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\settings2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\settings3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\view_invoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -94,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

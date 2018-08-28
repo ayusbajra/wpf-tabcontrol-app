@@ -4,9 +4,74 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        mc:Ignorable="d" MinWidth="1200" MinHeight="600"
+        Title="Microsoft Visual Studio" WindowState="Maximized">
+    
+    <Window.DataContext>
+        <local:ActionTabViewModal/>
+    </Window.DataContext>
+
+    <Border>
+        <Grid Background="DarkGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            
+            <!--Menu Bar-->
+            <Menu Grid.Row="0" FontSize="15">
+                <MenuItem Height="30" Header="Master">
+                    <MenuItem Height="30" Header="Account" Click="Account_Click"/>
+                    <MenuItem Height="30" Header="Account Category" Click="AccountCategory_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Entry">
+                    <MenuItem Height="30" Header="Purchase" Click="Entry_Click"/>
+                    <MenuItem Height="30" Header="Invoice" Click="Entry_Click"/>
+                    <MenuItem Height="30" Header="Journal" Click="Entry_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Reports"></MenuItem>
+
+                <MenuItem Header="Register">
+                    <MenuItem Height="30" Header="Invoice Register" Click="Register_Click"/>
+                    <MenuItem Height="30" Header="Purchase Register" Click="Register_Click"/>
+                    <MenuItem Height="30" Header="Journal Register" Click="Register_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Settings">
+                    <MenuItem Height="30" Header="Settings 1" Click="Settings_Click"/>
+                    <MenuItem Height="30" Header="Settings 2" Click="Settings_Click"/>
+                    <MenuItem Height="30" Header="Settings 3" Click="Settings_Click"/>
+                </MenuItem>
+
+                <MenuItem Header="Help"></MenuItem>
+            </Menu>
+
+            <TabControl Grid.Row="1" x:Name="actionTabs" ItemsSource="{Binding Tabs}" Margin="5">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Height="30" Width="170">
+                            <TextBlock Width="150" Text="{Binding Header}" FontSize="15" VerticalAlignment="Center"/>
+                            <Button Width="18" Height="18" Click="Close_Button_Click" BorderThickness="0" Background="Transparent" HorizontalAlignment="Right">
+                                <Image Source="close.png"/>
+                            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <UserControl Content="{Binding Content}" Padding="10"/>
+                        </ScrollViewer>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+
+            <StackPanel Grid.Row="2" Background="LightGray">
+                <Label Content="Status Bar, if needed."/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>
